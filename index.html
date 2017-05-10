@@ -131,7 +131,7 @@
 
             <div class="col-md-6 col-sm-6 col-xs-12">
               <p class="margin">Select state</p>
-              <div id="regionselect" style="padding-left: 20px; padding-right: 20px;">
+              <div id="regionselect">
                 <select id="dept_selector" style="width: 100%" class="form-control">
                   <option value="volvo">Califoria</option>
                   <option value="saab">New York</option>
@@ -147,28 +147,29 @@
             <div class="col-md-12">
               <div class="box box-warning">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Payments received over time</h3>
+                  <h3 class="box-title">Companies that paid this doctor</h3>
                   <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                   </div>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                   <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                       <p class="text-center">
                         <strong>1 Jan, 2013 - 30 Jul, 2014</strong>
                       </p>
                       <div class="chart">
                         <!-- Sales Chart Canvas -->
-                        <canvas id="salesChart" style="height: 180px;"></canvas>
+                        <!--<canvas id="salesChart" style="height: 180px;"></canvas>-->
+                        <div id="bar_horizontal"></div>
                       </div><!-- /.chart-responsive -->
                     </div><!-- /.col -->
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                       <p class="text-center">
                         <strong>Payment categories</strong>
                       </p>
 
-                      <p>(Vertical bar chart)</p>
+                      <div id="bar_vertical"></div>
 
                     </div><!-- /.col -->
                   </div><!-- /.row -->
@@ -180,7 +181,7 @@
           <!-- Main row -->
           <div class="row">
             <!-- Left col -->
-            <div class="col-md-8">
+            <div class="col-md-12">
               <!-- MAP & BOX PANE -->
               <div class="box box-warning">
                 <div class="box-header with-border">
@@ -194,7 +195,8 @@
                     <div class="col-md-9 col-sm-8">
                       <div class="pad">
                         <!-- Map will be created here -->
-                        <div id="world-map-markers" style="height: 325px;"></div>
+                        <!--<div id="world-map-markers" style="height: 325px;"></div>-->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26374959.066984598!2d-113.78645655205395!3d36.200621038436275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!3m2!1sen!2suk!4v1494334224015" width="100%" height="420" frameborder="0" style="border:0" allowfullscreen></iframe>
                       </div>
                     </div><!-- /.col -->
                     <div class="col-md-3 col-sm-4">
@@ -221,26 +223,6 @@
               </div><!-- /.box -->
 
             </div><!-- /.col -->
-
-            <div class="col-md-4">
-              <div class="box box-warning">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Companies that paid this doctor</h3>
-                  <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                  </div>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                  <div class="row">
-                    <div class="col-md-12">
-
-                      <p>(Pie chart)</p>
-
-                    </div>
-                  </div><!-- /.row -->
-                </div><!-- ./box-body -->
-              </div>
-            </div><!-- /.col -->
           </div><!-- /.row -->
           <!-- Bottom row -->
           <div class="row">
@@ -258,7 +240,7 @@
                       <p class="text-center">
                         <strong>Number of prescriptions written by doctor vs number payments received by doctor</strong>
                       </p>
-                      <p>(Grouped bar chart)</p>
+                      <div id="bar_grouped"></div>
 
                     </div>
                   </div><!-- /.row -->
@@ -268,7 +250,7 @@
             <div class="col-md-6">
               <div class="box box-warning">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Number of prescriptions by other doctors in the same state</h3>
+                  <h3 class="box-title">Average no. of prescriptions by other doctors in same state</h3>
                   <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                   </div>
@@ -277,7 +259,30 @@
                   <div class="row">
                     <div class="col-md-12">
 
-                      <p>(Pie chart)</p>
+                      <div class="col-lg-12 col-xs-12">
+                        <!-- small box -->
+                        <div class="small-box bg-aqua">
+                          <div class="inner">
+                            <h3>150</h3>
+                            <p>Doctor A</p>
+                          </div>
+                          <div class="icon">
+                            <i class="ion ion-android-contact"></i>
+                          </div>
+                        </div>
+                      </div><!-- ./col -->
+                      <div class="col-lg-12 col-xs-12">
+                        <!-- small box -->
+                        <div class="small-box bg-green">
+                          <div class="inner">
+                            <h3>53</h3>
+                            <p>Other doctors</p>
+                          </div>
+                          <div class="icon">
+                            <i class="ion ion-android-contacts"></i>
+                          </div>
+                        </div>
+                      </div><!-- ./col -->
 
                     </div>
                   </div><!-- /.row -->
@@ -302,11 +307,11 @@
     <!-- Bootstrap 3.3.5 -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <!-- FastClick -->
-    <script src="plugins/fastclick/fastclick.min.js"></script>
+    <!--<script src="plugins/fastclick/fastclick.min.js"></script>-->
     <!-- AdminLTE App -->
     <script src="dist/js/app.min.js"></script>
     <!-- Sparkline -->
-    <script src="plugins/sparkline/jquery.sparkline.min.js"></script>
+    <!--<script src="plugins/sparkline/jquery.sparkline.min.js"></script>-->
     <!-- jvectormap -->
     <script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
     <script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
@@ -315,8 +320,14 @@
     <!-- ChartJS 1.0.1 -->
     <script src="plugins/chartjs/Chart.min.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="dist/js/pages/dashboard2.js"></script>
+    <!--<script src="dist/js/pages/dashboard2.js"></script>-->
     <!-- AdminLTE for demo purposes -->
     <script src="dist/js/demo.js"></script>
+
+    <!--Our scripts-->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="dist/js/dummycharts.js"></script>
   </body>
 </html>
